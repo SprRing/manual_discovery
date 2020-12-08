@@ -1,6 +1,13 @@
 # manual_discovery
 Here is what we can see using the very basic settings.
 And there are 11 memory leaks.
+Input cmd lines:
+```
+java -jar /Users/yenshou/Downloads/taobao_FlowDroid/soot-infoflow-cmd-jar-with-dependencies.jar \
+-a /Users/yenshou/Downloads/taobao_FlowDroid/taobao.apk \
+-p /Users/yenshou/Library/Android/sdk/platforms/android-28/android.jar \
+-s /Users/yenshou/Downloads/taobao_FlowDroid/SourcesAndSinks.txt
+```
 ```
 [main] INFO soot.jimple.infoflow.memory.MemoryWarningSystem - Shutting down the memory warning system...
 [main] INFO soot.jimple.infoflow.android.SetupApplication$InPlaceInfoflow - Memory consumption after path building: 280 MB
@@ -33,6 +40,12 @@ And there are 11 memory leaks.
 ```
 
 For "AndroidCallbacks.txt"
+```
+java -jar /Users/yenshou/Downloads/taobao_FlowDroid/soot-infoflow-cmd-jar-with-dependencies.jar \
+-a /Users/yenshou/Downloads/taobao_FlowDroid/taobao.apk \
+-p /Users/yenshou/Library/Android/sdk/platforms/android-28/android.jar \
+-s /Users/yenshou/Downloads/taobao_FlowDroid/AndroidCallbacks.txt
+```
 ```
 [main] INFO soot.jimple.infoflow.cmd.MainClass - Analyzing app /Users/yenshou/Downloads/taobao_FlowDroid/taobao.apk (1 of 1)...
 [main] INFO soot.jimple.infoflow.android.SetupApplication - Initializing Soot...
@@ -268,4 +281,9 @@ For "AndroidCallbacks.txt"
 [main] WARN soot.jimple.infoflow.android.SetupApplication$InPlaceInfoflow - No results found.
 [main] INFO soot.jimple.infoflow.android.SetupApplication$InPlaceInfoflow - Data flow solver took 1 seconds. Maximum memory consumption: 383 MB
 [main] INFO soot.jimple.infoflow.android.SetupApplication - Found 0 leaks
+```
+
+Something we need to test further...
+```
+java -Xmx4g -cp sootclasses-trunk-jar-with-dependencies.jar:soot-infoflow.jar:soot-infoflow-android.jar:slf4j-api-1.7.5.jar:slf4j-simple-1.7.5.jar:axml-2.0.jar /Users/yenshou/Downloads/taobao_FlowDroid/AndroidCallbacks.txt “/Users/yenshou/Downloads/taobao_FlowDroid/taobao.apk" /Users/yenshou/Library/Android/sdk/platforms/android-28/android.jar
 ```
