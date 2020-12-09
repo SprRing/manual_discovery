@@ -285,8 +285,92 @@ java -jar /Users/yenshou/Downloads/taobao_FlowDroid/soot-infoflow-cmd-jar-with-d
 [main] INFO soot.jimple.infoflow.android.SetupApplication$InPlaceInfoflow - Data flow solver took 1 seconds. Maximum memory consumption: 383 MB
 [main] INFO soot.jimple.infoflow.android.SetupApplication - Found 0 leaks
 ```
-
-Something we need to test further...
+For "EasyTaintWrapperSource.txt"
 ```
-java -Xmx4g -cp sootclasses-trunk-jar-with-dependencies.jar:soot-infoflow.jar:soot-infoflow-android.jar:slf4j-api-1.7.5.jar:slf4j-simple-1.7.5.jar:axml-2.0.jar /Users/yenshou/Downloads/taobao_FlowDroid/AndroidCallbacks.txt “/Users/yenshou/Downloads/taobao_FlowDroid/taobao.apk" /Users/yenshou/Library/Android/sdk/platforms/android-28/android.jar
+java -jar soot-infoflow-cmd-jar-with-dependencies.jar \
+-a taobao.apk \
+-p /Users/yenshou/Library/Android/sdk/platforms/android-28/android.jar \
+-s EasyTaintWrapperSource.txt
+```
+```
+[main] INFO soot.jimple.infoflow.cmd.MainClass - Analyzing app /Users/yenshou/Downloads/taobao_FlowDroid/taobao.apk (1 of 1)...
+[main] INFO soot.jimple.infoflow.android.SetupApplication - Initializing Soot...
+[main] INFO soot.jimple.infoflow.android.SetupApplication - Loading dex files...
+[main] WARN soot.dexpler.DexFileProvider - Multiple dex files detected, only processing 'classes.dex'. Use '-process-multiple-dex' option to process them all.
+[main] INFO soot.jimple.infoflow.android.SetupApplication - ARSC file parsing took 0.098737708 seconds
+[main] INFO soot.jimple.infoflow.memory.MemoryWarningSystem - Registered a memory warning system for 3,686.4 MiB
+[main] INFO soot.jimple.infoflow.android.entryPointCreators.AndroidEntryPointCreator - Creating Android entry point for 834 components...
+[main] INFO soot.jimple.infoflow.android.SetupApplication - Constructing the callgraph...
+[main] INFO soot.jimple.infoflow.android.callbacks.DefaultCallbackAnalyzer - Collecting callbacks in DEFAULT mode...
+[main] INFO soot.jimple.infoflow.android.callbacks.DefaultCallbackAnalyzer - Callback analysis done.
+[main] WARN soot.jimple.infoflow.android.resources.LayoutFileParser - Fragment without class name or id detected
+[main] WARN soot.jimple.infoflow.android.resources.LayoutFileParser - Fragment without class name or id detected
+[main] INFO soot.jimple.infoflow.android.entryPointCreators.AndroidEntryPointCreator - Creating Android entry point for 834 components...
+[main] INFO soot.jimple.infoflow.android.SetupApplication - Constructing the callgraph...
+[main] INFO soot.jimple.infoflow.android.callbacks.DefaultCallbackAnalyzer - Running incremental callback analysis for 13 components...
+[main] INFO soot.jimple.infoflow.android.callbacks.DefaultCallbackAnalyzer - Incremental callback analysis done.
+[main] INFO soot.jimple.infoflow.android.entryPointCreators.AndroidEntryPointCreator - Creating Android entry point for 835 components...
+[main] WARN soot.jimple.infoflow.android.entryPointCreators.AndroidEntryPointCreator - Cannot create valid constructor for com.taobao.android.compat.ApplicationCompat$ActivityLifecycleCallbacksCompat, because it is an interface and cannot substitute with subclass
+[main] INFO soot.jimple.infoflow.android.SetupApplication - Constructing the callgraph...
+[main] INFO soot.jimple.infoflow.android.callbacks.DefaultCallbackAnalyzer - Running incremental callback analysis for 1 components...
+[main] INFO soot.jimple.infoflow.android.callbacks.DefaultCallbackAnalyzer - Incremental callback analysis done.
+[main] INFO soot.jimple.infoflow.android.entryPointCreators.AndroidEntryPointCreator - Creating Android entry point for 835 components...
+[main] INFO soot.jimple.infoflow.android.SetupApplication - Constructing the callgraph...
+[main] INFO soot.jimple.infoflow.android.callbacks.DefaultCallbackAnalyzer - Running incremental callback analysis for 0 components...
+[main] INFO soot.jimple.infoflow.android.callbacks.DefaultCallbackAnalyzer - Incremental callback analysis done.
+[main] INFO soot.jimple.infoflow.memory.MemoryWarningSystem - Shutting down the memory warning system...
+[main] INFO soot.jimple.infoflow.android.SetupApplication - Callback analysis terminated normally
+[main] INFO soot.jimple.infoflow.android.SetupApplication - Entry point calculation done.
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: # Packages to include in the analysis
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: ^android.
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: ^java.
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: ^org.apache.http.
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: ^org.joda.time.
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: -<java.util.Map: void clear()>
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: -<java.util.List: void clear()>
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: ~<java.util.List: int size()>
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: -<java.util.Set: void clear()>
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: ~<java.util.Set: int size()>
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: -<java.util.Collection: void clear()>
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: ~<java.util.Collection: int size()>
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: -<java.util.Vector: void clear()>
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: ~<java.util.Vector: int size()>
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: ~<java.util.Queue: int size()>
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: <java.io.ObjectOutputStream: void writeObject(java.lang.Object>
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: ~<android.app.Activity: android.view.View findViewById(int)>
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: ~<android.app.Activity: void setContentView(int)>
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: ~<android.app.Activity: void setContentView(android.view.View)>
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: # Exclude the ServerSocket stuff
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: # ~<java.net.ServerSocket: java.net.Socket accept()>
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: # ~<java.net.Socket: java.io.InputStream getInputStream()>
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: ~<android.content.ContextWrapper: android.content.Context getApplicationContext()>
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: ~<android.view.ContextThemeWrapper: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: ~<android.view.ContextThemeWrapper: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>
+[main] WARN soot.jimple.infoflow.android.data.parsers.PermissionMethodParser - Line does not match: ~<android.content.SharedPreferences: android.content.SharedPreferences$Editor edit()>
+[main] INFO soot.jimple.infoflow.android.source.AccessPathBasedSourceSinkManager - Created a SourceSinkManager with 0 sources, 0 sinks, and 48 callback methods.
+[main] INFO soot.jimple.infoflow.android.SetupApplication - Collecting callbacks and building a callgraph took 24 seconds
+[main] INFO soot.jimple.infoflow.android.SetupApplication - Running data flow analysis on /Users/yenshou/Downloads/taobao_FlowDroid/taobao.apk with 0 sources and 0 sinks...
+[main] INFO soot.jimple.infoflow.InfoflowConfiguration - Implicit flow tracking is NOT enabled
+[main] INFO soot.jimple.infoflow.InfoflowConfiguration - Exceptional flow tracking is enabled
+[main] INFO soot.jimple.infoflow.InfoflowConfiguration - Running with a maximum access path length of 5
+[main] INFO soot.jimple.infoflow.InfoflowConfiguration - Using path-agnostic result collection
+[main] INFO soot.jimple.infoflow.InfoflowConfiguration - Recursive access path shortening is enabled
+[main] INFO soot.jimple.infoflow.InfoflowConfiguration - Taint analysis enabled: true
+[main] INFO soot.jimple.infoflow.InfoflowConfiguration - Using alias algorithm FlowSensitive
+[main] INFO soot.jimple.infoflow.memory.MemoryWarningSystem - Registered a memory warning system for 3,686.4 MiB
+[main] INFO soot.jimple.infoflow.android.SetupApplication$InPlaceInfoflow - Callgraph construction took 0 seconds
+[main] INFO soot.jimple.infoflow.codeOptimization.InterproceduralConstantValuePropagator - Removing side-effect free methods is disabled
+[main] INFO soot.jimple.infoflow.android.SetupApplication$InPlaceInfoflow - Dead code elimination took 0.658011156 seconds
+[main] INFO soot.jimple.infoflow.android.SetupApplication$InPlaceInfoflow - Callgraph has 17477 edges
+[main] INFO soot.jimple.infoflow.android.SetupApplication$InPlaceInfoflow - Starting Taint Analysis
+[main] INFO soot.jimple.infoflow.android.SetupApplication$InPlaceInfoflow - Using context- and flow-sensitive solver
+[main] INFO soot.jimple.infoflow.android.SetupApplication$InPlaceInfoflow - Using context- and flow-sensitive solver
+[main] WARN soot.jimple.infoflow.android.SetupApplication$InPlaceInfoflow - Running with limited join point abstractions can break context-sensitive path builders
+[main] INFO soot.jimple.infoflow.android.SetupApplication$InPlaceInfoflow - Looking for sources and sinks...
+[main] ERROR soot.jimple.infoflow.android.SetupApplication$InPlaceInfoflow - No sources found, aborting analysis
+[main] INFO soot.jimple.infoflow.memory.MemoryWarningSystem - Shutting down the memory warning system...
+[main] WARN soot.jimple.infoflow.android.SetupApplication$InPlaceInfoflow - No results found.
+[main] INFO soot.jimple.infoflow.android.SetupApplication$InPlaceInfoflow - Data flow solver took 1 seconds. Maximum memory consumption: 284 MB
+[main] INFO soot.jimple.infoflow.android.SetupApplication - Found 0 leaks
+
 ```
