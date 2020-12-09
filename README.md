@@ -1,6 +1,7 @@
 # manual_discovery
 
 ##### https://blogs.uni-paderborn.de/sse/tools/flowdroid/
+##### https://www.bodden.de/pubs/far+14flowdroid.pdf
 Here is what we can see using the very basic settings.
 And there are 11 memory leaks.
 Input cmd lines:
